@@ -5,15 +5,15 @@ var handler = async (m, { text, command, usedPrefix }) => {
 let res = await ask(text)
 await conn.reply(m.chat, res, m) 
 }
-// handler.help = ['ai <hello>']
-// handler.tags = ['internet']
-// handler.command = /^(ai|openai)$/i
+handler.help = ['ai <hello>']
+handler.tags = ['internet']
+handler.command = /^(ai|openai)$/i
 
 module.exports = handler
 
 async function ask(txt) {
   const configuration = new Configuration({
-  apiKey: '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',
+  apiKey: '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',
 });
 const openai = new OpenAIApi(configuration);
   let text = `Q: ${txt}
