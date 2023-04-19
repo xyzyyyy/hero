@@ -36,6 +36,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 handler.help = ['tiktokmp4'].map(v => v + ' <url>')
 handler.tags = ['downloader']
 handler.command = /^(tt|t(ik)?t(ok)?(d(own)?l(oader)?)?(mp4|v(ideo)?)?)$/i
+handler.limit = true
 //handler.register = true
 handler.desc = ['Mendownload media video dari Tiktok, gunakan perintah *#tiktokmp4 url* hilangkan tanda < >']
 module.exports = handler
