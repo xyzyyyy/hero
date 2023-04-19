@@ -28,6 +28,7 @@ let handler = async (m, { conn, args, isPrems, isOwner }) => {
 handler.help = ['ytmp4']
 handler.tags = ['downloader']
 handler.command = /^yt(v|mp4)?$/i
+handler.limit = true
 
 module.exports = handler
 
