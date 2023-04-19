@@ -1,5 +1,3 @@
-let db = require('./lib/database.js')
-
 let handler = async (m) => {
 	let totaluser = Object.keys(db.data.users).length
 	let stats = Object.entries(db.data.stats).map(([key, val]) => {
