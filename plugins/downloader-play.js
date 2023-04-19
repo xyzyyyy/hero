@@ -44,6 +44,7 @@ ${set.sb} *Description* : ${description ? description : 'Not found'}
 handler.help = ['play'].map(v => v + ' <query>')
 handler.tags = ['downloader']
 handler.command = /^play(rand(om)?)?$/i
+handler.limit = true
 handler.desc = ['Mencari video dari Youtube, gunakan perintah *#play judul atau url* hilangkan tanda < >']
 module.exports = handler
 
