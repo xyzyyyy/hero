@@ -35,7 +35,7 @@ module.exports = {
                     if (!isNumber(user.level)) user.level = 1
                     if (!isNumber(user.exp)) user.exp = 0
                     if (!isNumber(user.skata)) user.skata = 0
-                    if (!isNumber(user.limit)) user.limit = 100
+                    if (!isNumber(user.limit)) user.limit = 10
                     if (!isNumber(user.lastseen)) user.lastseen = 0
                     if (!isNumber(user.usebot)) user.usebot = 0
                     if (!isNumber(user.lastclaim)) user.lastclaim = 0
@@ -158,7 +158,7 @@ module.exports = {
                     level: 1,
                     exp: 0,
                     skata: 0,
-                    limit: 100,
+                    limit: 10,
                     lastseen: 0,
                     usebot: 0,
                     lastclaim: 0,
