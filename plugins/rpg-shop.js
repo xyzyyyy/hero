@@ -1,4 +1,5 @@
 let { MessageType } = require('baileys')
+const Blimit = 1000
 const potion = 500
 const Sgold = 3000
 const Bgold = 6000
@@ -91,6 +92,7 @@ bila sudah tidak ada harganya, berarti sudah tidak bisa dibeli / sudah level max
 ━━━━━━━━━━━━━━━━━━━
 *♻ Barang   | 💲 Harga beli*
 ━━━━━━━━━━━━━━━━━━━
+*Limit:* ${Blimit}
 *🥤 Potion:* ${potion}
 *🍶 Aqua:* ${Baqua}
 *🪙  Gold :* ${Bgold}
@@ -195,6 +197,14 @@ bila sudah tidak ada harganya, berarti sudah tidak bisa dibeli / sudah level max
             switch (jualbeli) {
             case 'buy':
                 switch (_type) {
+                 case 'limit':
+                             if (global.DATABASE.data.users[m.sender].emas >= Blimit * count) {
+                                global.DATABASE.data.users[m.sender].limit += count * 1
+                                global.DATABASE.data.users[m.sender].emas -= Blimit * count
+                                conn.reply(m.chat, `✔️ Sukses Membeli Limit Dengan Harga ${Bkucing * count} Gold 🪙`, m)
+                            } else conn.reply(m.chat, `Gold Anda Tidak Cukup`, m)
+                        
+                        break
                 	case 'kucing':
                 if (global.db.data.users[m.sender].kucing == 1) return conn.reply(m.chat, 'Kamu sudah memiliki pet ini', m)
                             if (global.DATABASE.data.users[m.sender].emas >= Bkucing * count) {
