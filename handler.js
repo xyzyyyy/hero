@@ -792,24 +792,24 @@ module.exports = {
         }
     },
 	
-    //async delete(update) {
-        //try {
-          // console.log(update)
-          //let { remoteJid, fromMe, id, participant } = update
-          //if (set.opts['self'] && fromMe) return
-          //if (this.isInit) return
-          //if (db.data == null) await global.loadDatabase()
-          //let chats = Object.entries(await this.chats).find(([user, data]) => data.messages && data.messages[id])
-          //if (!chats) return
-          //let msg = JSON.parse(JSON.stringify(chats[1].messages[id]))
-          //let chat = global.db.data.chats[remoteJid]
-          //let nama = pickRandom(['apaan', 'galiat', 'hehe', 'hihi', 'hm', 'kyubi', 'makan', 'mana', 'seduh', 'smile', 'xixi'])
-          //let stiker = fs.readFileSync('./api/sticker/' + nama + '.webp')
-          //if (!chat.antidelete) return this.sendFile(remoteJid, stiker, 'delete.webp', '', msg)			
-          //this.sendFile(remoteJid, stiker, 'hayo.webp', '', msg).then(_=> this.copyNForward(remoteJid, msg).catch(e => console.log(e, msg)))
-        //} catch { 
-	//}
-    //}, 
+    async delete(update) {
+        try {
+           console.log(update)
+          let { remoteJid, fromMe, id, participant } = update
+          if (set.opts['self'] && fromMe) return
+          if (this.isInit) return
+          if (db.data == null) await global.loadDatabase()
+          let chats = Object.entries(await this.chats).find(([user, data]) => data.messages && data.messages[id])
+          if (!chats) return
+          let msg = JSON.parse(JSON.stringify(chats[1].messages[id]))
+          let chat = global.db.data.chats[remoteJid]
+          let nama = pickRandom(['apaan', 'galiat', 'hehe', 'hihi', 'hm', 'kyubi', 'makan', 'mana', 'seduh', 'smile', 'xixi'])
+          let stiker = fs.readFileSync('./api/sticker/' + nama + '.webp')
+          if (!chat.antidelete) return this.sendFile(remoteJid, stiker, 'delete.webp', '', msg)			
+          this.sendFile(remoteJid, stiker, 'hayo.webp', '', msg).then(_=> this.copyNForward(remoteJid, msg).catch(e => console.log(e, msg)))
+        } catch { 
+	}
+    }, 
     
     async onCall(json) {
 	console.log(json.content[0])
