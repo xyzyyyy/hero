@@ -34,14 +34,14 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 					//pp = 'https://telegra.ph/file/32ffb10285e5482b19d89.jpg'
 		//} catch (e) {
   } finally {
-  	if (typeof db.data.home[who] == 'undefined') throw 'Pengguna tidak ada didalam database'
+  	if (typeof db.data.users[who] == 'undefined') throw 'Pengguna tidak ada didalam database'
 	let groupMetadata = m.isGroup ? await conn.groupMetadata(m.chat) : {}
     let participants = m.isGroup ? groupMetadata.participants : []
-	let home = m.isGroup ? participants.find(u => u.jid == who) : {}
+	let users = m.isGroup ? participants.find(u => u.jid == who) : {}
 	let number = who.split('@')[0]
 	//let pp = await conn.updateProfilePicture(who)
 	let about = (await conn.fetchStatus(who).catch(console.error) || {}).status || ''
-    let { name, pasangan, limit, exp, money, bank, lastclaim, premiumDate, premium, registered, regTime, age, level, role, skata, healt, job } = global.db.data.home[who]
+    let { name, pasangan, limit, exp, money, bank, lastclaim, premiumDate, premium, registered, regTime, age, level, role, skata, healt, job } = global.db.data.users[who]
     let now = new Date() * 1
     let { min, xp, max } = levelling.xpRange(level, global.multiplier)
     let username = conn.getName(who)
