@@ -2,8 +2,7 @@ let handler = async(m, { conn }) => {
   conn.sendFile(m.chat, `${hasil}`, 'hasil.mp4', 'asupan mu', m)
 }
 
-let hasil = `${pickRandom([
-'https://b.top4top.io/m_1931yxodg0.mp4',
+let hasil = `${pickRandom(['https://b.top4top.io/m_1931yxodg0.mp4',
 'https://k.top4top.io/m_193161p380.mp4',
 'https://l.top4top.io/m_1931i4g3p1.mp4',
 'https://a.top4top.io/m_1931tjlio2.mp4',
