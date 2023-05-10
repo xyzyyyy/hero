@@ -1,16 +1,13 @@
-let instagramGetUrl = require('instagram-url-direct')
-let handler = async (m, { conn, args, usedPrefix, command }) => {
-m.react(global.tunggu)
-    if (!args[0]) return m.reply(`*Masukan URL Instagram/Facebook nya!`)
-    const results = (await instagramGetUrl(args[0])).url_list[0]
-
-m.react(global.done)
-    conn.sendFile(m.chat, results, 'ig.mp4', set.sukses, m)
+let axios = require('axios')
+let ryhar = async (m, {text}) => {
+	if (!text) return m.reply("Url instagram nya mana?")
+	let v = (await axios.get(`https://sh.xznsenpai.xyz/api/igdl?url=${text}`)).data
+	await m.reply(`_Prosess..._`)
+	for (let i of v.media) {
+	conn.sendFile(m.chat, i, '', v.caption)
+	}
 }
-handler.help = ['ig'].map(v => v + ' <url>')
-handler.tags = ['downloader']
-
-handler.command = /^(Instagram|ig|igdl|facebook|fb|fbdl)$/i
-handler.limit = true
-
-module.exports = handler
+ryhar.help = ['instagram']
+ryhar.tags = ['downloader']
+ryhar.command = ["ig", "igdl", "instagram"]
+module.export = ryhar
