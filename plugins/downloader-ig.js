@@ -10,4 +10,4 @@ let ryhar = async (m, {text}) => {
 ryhar.help = ['instagram']
 ryhar.tags = ['downloader']
 ryhar.command = ["ig", "igdl", "instagram"]
-module.export = ryhar
+module.exports = ryhar
