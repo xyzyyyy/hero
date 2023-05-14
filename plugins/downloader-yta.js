@@ -2,7 +2,7 @@ const axios = require("axios")
 let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
   if (!args[0]) throw `Link nya mana?`
   m.react('⏱️')
-  const { data: res } = await axios.get(`https://lol.zeeoneofc.my.id/api/download/ytmp3?url=${args[0]}&apikey=Alphabot`)
+  const { data: res } = await axios.get(`https://rahardiyanapi.xyzyyyy.repl.co/api/download/ytmp3?url=${args[0]}&apikey=yan`)
   let audio = res.download
   if (!audio) throw `Link download tidak ditemukan à²¥_à²¥`
   m.react(global.done)
