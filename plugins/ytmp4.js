@@ -9,7 +9,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     throw eror 
   }
 }
-handler.command = /^(ytv|ytmp4|mp4)$/i
+//handler.command = /^(ytv|ytmp4|mp4)$/i
 
 handler.limit = true
 
