@@ -8,7 +8,7 @@ let handler = (m, { text }) => {
 ┆ *Alasan* : ${text ? '' + text : ''}
 ╰┅────────────────────★
 `.trim()
-conn.sendButton(m.chat, str, 'AFK MODE!', [['Jangan Ganggu Aku Ya','iyaaaaa']], m)
+m.reply(str)
 }
 handler.help = ['afk <alasan>']
 handler.tags = ['group']
