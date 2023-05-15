@@ -2,7 +2,7 @@ let { Configuration, OpenAIApi } = require("openai")
 let handler = async (m, { conn, text }) => {
 if (!text) return m.adreply("[!] Masukkan teks.")
 const configuration = new Configuration({
-    apiKey: "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"
+    apiKey: "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"
 });
 const openai = new OpenAIApi(configuration);
         const response = await openai.createChatCompletion({
