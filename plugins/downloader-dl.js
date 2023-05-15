@@ -9,7 +9,7 @@ let ryhar = async (m, {text}) => {
 	  for (let x of data) await conn.sendFile(m.chat, x.url[0].url, "", "", m)
 	} else await await conn.sendFile(m.chat, data.url[0].url, "", data.meta.title, m)
 }
-ryhar.help = ['dl']
-ryhar.tags = ['downloader']
-ryhar.command = /^dl()?$/i
+//ryhar.help = ['dl']
+//ryhar.tags = ['downloader']
+//ryhar.command = /^dl()?$/i
 module.exports = ryhar
