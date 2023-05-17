@@ -30,7 +30,7 @@ global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in set.api
 global.set.timestamp = { start: new Date }
 global.db = new Low(new mongoDB("mongodb+srv://mymd:rahardiyan@mymd.vzibrve.mongodb.net/?retryWrites=true&w=majority"))
 //global.db = new Low(
-  /https?:\/\//.test(set.opts['db'] || '') ?
+  // /https?:\/\//.test(set.opts['db'] || '') ?
    new cloudDBAdapter(set.opts['db']) : /mongodb/.test(set.opts['db']) ?
       new mongoDB(set.opts['db']) :
       new JSONFile(`${set.opts._[0] ? set.opts._[0] + '_' : 'rasel'}.db.json`)
