@@ -1,6 +1,6 @@
 {
     "name": "mymd",
-    "version": "1.0.1",
+    "version": "7.5.0.90",
     "description": "Simple WhatsApp Bot by bit.ly/AcellComel",
     "depecrated": false,
     "main": "index.js",
