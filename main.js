@@ -21,6 +21,7 @@ const simple = require('./lib/simple')
 const storeSystem = require('./lib/store.js')
 const store = storeSystem.makeInMemoryStore()
 const mongoDB = require('./lib/mongoDB')
+const database = new (require("./lib/Database.js"))
 const { Low, JSONFile } = require('./lib/lowdb')
 const PORT = process.env.PORT || 3000
 
@@ -48,10 +49,6 @@ global.loadDatabase = async function loadDatabase() {
   global.db.chain = _.chain(global.db.data)
 }
 global.loadDatabase()
-// rewrite database every 30 seconds
-    setInterval(async () => {
-        if (global.db) await database.write(global.db)
-    }, 3000)
 
 const authF = set.opts['single'] ? `${set.opts._[0] || 'rasel'}.sessi.json` : 'sessions'
 const { state, saveState, saveCreds } = set.opts['single'] ? await useSingleFileAuthState(authF) : await storeSystem.useMultiFileAuthState(authF)                      
