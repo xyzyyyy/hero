@@ -48,6 +48,10 @@ global.loadDatabase = async function loadDatabase() {
   global.db.chain = _.chain(global.db.data)
 }
 global.loadDatabase()
+// rewrite database every 30 seconds
+    setInterval(async () => {
+        if (global.db) await database.write(global.db)
+    }, 3000)
 
 const authF = set.opts['single'] ? `${set.opts._[0] || 'rasel'}.sessi.json` : 'sessions'
 const { state, saveState, saveCreds } = set.opts['single'] ? await useSingleFileAuthState(authF) : await storeSystem.useMultiFileAuthState(authF)                      
