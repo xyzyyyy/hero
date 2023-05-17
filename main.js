@@ -29,11 +29,9 @@ simple.protoType()
 global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in set.api.name.s ? set.api.name.s[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({ ...query, ...(apikeyqueryname ? { [apikeyqueryname]: set.api.key.s[name in set.api.name.s ? set.api.name.s[name] : name] } : {}) })) : '')
 global.set.timestamp = { start: new Date }
 global.db = new Low(new mongoDB("mongodb+srv://mymd:rahardiyan@mymd.vzibrve.mongodb.net/?retryWrites=true&w=majority"))
+global.DATABASE = global.db
 //global.db = new Low(
   // /https?:\/\//.test(set.opts['db'] || //'') ?
-   new cloudDBAdapter(set.opts['db']) : /mongodb/.test(set.opts['db']) ?
-      new mongoDB(`${set.opts._[0] ? set.opts._[0] + '_' : 'rahardiyan'}.db.json`)
-) 
 
 global.loadDatabase = async function loadDatabase() {
   if (global.db.READ) return new Promise((resolve) => setInterval(function () { (!global.db.READ ? (clearInterval(this), resolve(global.db.data == null ? global.loadDatabase() : global.db.data)) : null) }, 1 * 1000))
