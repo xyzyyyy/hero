@@ -6,14 +6,14 @@ const rewards = {
 const cooldown = 604800000
 let handler = async (m) => {
   let user = global.db.data.users[m.sender]
-  if (new Date - user.lastweekly < cooldown) throw `You have already claimed this daily claim!, wait for *${((user.lastweekly + cooldown) - new Date()).toTimeString()}*`
+  if (new Date - user.lastweekly < cooldown) throw `anda sudah claim mingguan anda, mohon tunggu selama *${((user.lastweekly + cooldown) - new Date()).toTimeString()}*`
   let text = ''
   for (let reward of Object.keys(rewards)) {
     if (!(reward in user)) continue
     user[reward] += rewards[reward]
     text += `*+${rewards[reward]}* ${global.rpg.emoticon(reward)}${reward}\n`
   }
-  conn.sendButton(m.chat,'*––––––『 WEEKLY 』––––––*', text.trim(), null, [['Inventory', '.inv'], ['Monthly', '.monthly']],m)
+  conn.sendButton(m.chat, text.trim(), m)
   user.lastweekly = new Date * 1
 }
 handler.help = ['weekly']
