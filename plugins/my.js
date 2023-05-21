@@ -27,15 +27,10 @@ let { name, limit, exp, level, money, atm } = global.db.data.users[who]
 let text = `*•━━━ ❮❮ P R O F I L E ❯❯ ━━━•*
 
 ⌬ ❯❯ Nama = *${name}*
-
 ⌬ ❯❯ Limit = *${limit}*
-
 ⌬ ❯❯ Exp = *${exp}*
-
 ⌬ ❯❯ Level = *${level}*
-
 ⌬ ❯❯ Money = *${money}*
-
 ⌬ ❯❯ ATM = *${atm}*`
 
 conn.sendMessage(m.chat, {
@@ -50,7 +45,7 @@ title: date,
 
 body: 'bodynya',
 
-thumbnailUrl: "https://telegra.ph/file/569e3dc7a24c176299c53.jpg",
+thumbnailUrl: "https://telegra.ph/file/b0112a95e8d2eb2aaeab9.jpg",
 
 sourceUrl: "https://chat.whatsapp.com/KZwneZawhyx5udc2XzUe7W",
 
