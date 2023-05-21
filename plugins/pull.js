@@ -1,6 +1,6 @@
 const xpperatm = 1
 let handler = async (m, { conn, command, args }) => {
-  let count = command.replace(/^narik|tarik/i, '')
+  let count = command.replace(/^pull/i, '')
   count = count ? /all/i.test(count) ? Math.floor(global.db.data.users[m.sender].atm / xpperatm) : parseInt(count) : args[0] ? parseInt(args[0]) : 1
   count = Math.max(1, count)
   if (global.db.data.users[m.sender].atm >= xpperatm * count) {
