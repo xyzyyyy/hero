@@ -9,6 +9,5 @@ handler.help = ['delete']
 handler.tags = ['info']
 handler.command = /^(d|del|delete|unsend?)$/i
 handler.limit = false
-handler.admin = true
 
 module.exports = handler
