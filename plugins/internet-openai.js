@@ -13,7 +13,7 @@ module.exports = handler
 
 async function ask(txt) {
   const configuration = new Configuration({
-  apiKey: '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',
+  apiKey: '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',
 });
 const openai = new OpenAIApi(configuration);
   let text = `Q: ${txt}
