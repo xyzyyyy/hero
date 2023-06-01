@@ -51,26 +51,6 @@ let lgocraft = `
 〉6 Diamond
 〉10k Money
 `
-const sections = [
-   {
-	title: "CRAFT A TOOLS",
-	rows: [
-	    {title: "SWORD ⚔️", rowId: ".craft sword", description: "Crafting A Sword"},
-	    {title: "PICKAXE ⛏️", rowId: ".craft pickaxe", description: "Crafting A Pickaxe"},
-	    {title: "FISHINGROD 🎣", rowId: ".craft fishingrod", description: "Crafting A Fishingrod"},
-	    {title: "ARMOR 🥼", rowId: ".craft armor", description: "Crafting A Armor"},
-	    {title: "ATM 💳", rowId: ".craft atm", description: "Crafting A Atm (but that's ilegal)"},
-	]
-    },
-]
-
-const listMessage = {
-  text: caption,
-  footer: "Rpg Craft",
-  title: lgocraft,
-  buttonText: " C R A F T ",
-  sections
-}
 
   try {
     if (/craft|Crafting/i.test(command)) {
@@ -139,7 +119,7 @@ const listMessage = {
           break
 
         default:
-          return conn.sendButton(m.chat, caption, 'Rpg Craft', null, [`⋮☰ Menu`, `.menu`], m)
+          return conn.sendButton(m.chat, caption, m)
       }
     }
   } catch (err) {
