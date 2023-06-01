@@ -119,7 +119,7 @@ let lgocraft = `
           break
 
         default:
-          return conn.sendButton(m.chat, caption, m)
+          return conn.reply(m.chat, caption, m)
       }
     }
   } catch (err) {
