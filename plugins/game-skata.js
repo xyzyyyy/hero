@@ -37,8 +37,7 @@ let handler = async (m, { conn, text, isPrems, isROwner, usedPrefix, command }) 
       delete conn.skata[id]
     }
     if (text == 'start' && room.status == 'wait') {
-      if (!member.includes(m.sender)) return conn.sendButton(m.chat, `Kamu belum ikut`, set.wm, 0, [['Join', `${usedPrefix + command}`]], m)
-      if (member.length < 2) return conn.sendButton(m.chat, `Minimal 2 orang`, set.wm, 0, [['Join', `${usedPrefix + command}`]], m)
+      if (!member.includes(m.sender)) return conn.reply(m.chat, `Kamu belum ikut\nKetik .skata untuk join`, m)
       room.curr = member[0]
       room.status = 'play'
       room.chat = await conn.reply(m.chat, `Saatnya @${parseInt(member[0])}\nMulai : *${(room.kata).toUpperCase()}*\n*${room.filter(room.kata).toUpperCase()}... ?*\n*Reply untuk menjawab!*\n"nyerah" untuk menyerah\nTotal: ${member.length} Player`, m, { mentions: [member[0]] })                            
@@ -56,7 +55,7 @@ let handler = async (m, { conn, text, isPrems, isROwner, usedPrefix, command }) 
           room.curr = member[0]
           if (room.player.length == 1 && room.status == 'play') {
             db.data.users[member[0]].exp += room.win_point
-            conn.sendButton(m.chat, `@${member[0].split`@`[0]} Menang`, `+${room.win_point}XP`, 0, [['Sambung Kata', '.skata'], ['Top Player', '.topskata']], room.chat, { mentions: member }).then(_=> {
+            conn.reply(m.chat, `@${member[0].split`@`[0]} Menang +${room.win_point}XP`, room.chat, { mentions: member }).then(_=> {
               delete conn.skata[id]
               return
             })
@@ -68,11 +67,11 @@ let handler = async (m, { conn, text, isPrems, isROwner, usedPrefix, command }) 
 	})
       }, 45000)
     } else if (room.status == 'wait') {
-      if (member.includes(m.sender)) return conn.sendButton(m.chat, `Kamu sudah ikut list`, set.wm, 0, [['Start', `${usedPrefix + command} start`], ['Join', `${usedPrefix + command}`]], m)
+      if (member.includes(m.sender)) return conn.reply(m.chat, `Kamu sudah ikut list`, m)
 	member.push(m.sender)
 	clearTimeout(room.waktu_list)
 	room.waktu_list = setTimeout(() => {
-          conn.sendButton(m.chat, `Kamu sudah ikut list`, set.wm, 0, [['Start', `${usedPrefix + command} start`], ['Join', `${usedPrefix + command}`]], room.chat).then(() => { delete conn.skata[id] })
+          conn.reply(m.chat, `Kamu sudah ikut list`, room.chat).then(() => { delete conn.skata[id] })
 	}, 120000)
         let caption = `
 ╔═〘 Daftar Player 〙
@@ -80,7 +79,7 @@ ${member.map((v, i) => `╟ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 ╚════
 Sambung kata akan dimainkan sesuai urutan player ( *Bergiliran* )
 Dan hanya bisa dimainkan oleh player yang terdaftar`.trim()
-        room.chat = await conn.sendButton(m.chat, caption, `Ketik\n*${usedPrefix + command}* untuk join/ikut\n*${usedPrefix + command} start* untuk memulai`, 0, [['Start', `${usedPrefix + command} start`], ['Join', `${usedPrefix + command}`]], m, { contextInfo: { mentionedJid: conn.parseMention(caption) } })
+        room.chat = await conn.reply(m.chat, caption, `Ketik\n*${usedPrefix + command}* untuk join/ikut\n*${usedPrefix + command} start* untuk memulai`, m, { contextInfo: { mentionedJid: conn.parseMention(caption) } })
        }
      } else {
        conn.skata[id] = {
@@ -95,7 +94,7 @@ Dan hanya bisa dimainkan oleh player yang terdaftar`.trim()
          kata,
          filter,
          genKata,
-         chat: conn.sendButton(m.chat, game, conn.readmore + rules, 0, [['Join', `${usedPrefix + command}`]], m),
+         chat: conn.reply(m.chat, game, conn.readmore + rules, m),
          waktu: false
        }
     }
