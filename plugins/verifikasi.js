@@ -1,8 +1,5 @@
+const { createHash } = require('crypto')
 let handler = async(m, { conn, text }) => {
-
-	let user = global.db.data.users[m.sender]	if (user.registered === true) throw `Anda sudah terdaftar`
-
-	user.registered = true
 
     if(!text) throw "masukkan code otpnya!!!"
 
@@ -20,11 +17,18 @@ let handler = async(m, { conn, text }) => {
 
         if (text == conn.sendMail[id].otpCode) {
 
-        conn.reply(m.chat, "berhasil verifikasi", m)
+        conn.reply(m.chat, "Registrasi Berhasil\n\nserial number = ${sn}\nSimpan SN mu jangan sampai hilang, akan dibutuhkan pada saat waktu yang tepat", m)
+        let user = global.db.data.users[m.sender]
+  if (user.registered === true) throw `Anda sudah terdaftar`
+  user.name = name.trim()
+  user.age = age
+  user.regTime = + new Date
+  user.registered = true
+  let sn = createHash('md5').update(m.sender).digest('hex')
 
         delete conn.sendMail[id]
 
-        } else conn.reply(m.chat, "gagal silahkan masukkan ulang codenya", m)
+        } else conn.reply(m.chat, "gagal silahkan masukkan ulang otp nya", m)
 
     }
 
