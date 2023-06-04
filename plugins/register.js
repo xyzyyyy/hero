@@ -468,7 +468,7 @@ let handler = async(m, {conn, text}) => {
 
     																	<div class style="font-size: 12px; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 21.6px; color: #848484; line-height: 1.8;">
 
-    																		<p style="margin: 0; font-size: 14px; text-align: center; mso-line-height-alt: 25.2px;"><span style="font-size:14px;">hi ${name}<br />Confirm your email to be able to use ktdprjct Bot. Send this code to the bot and it will expire in 5 minutes.<br /><br /></span></p><h1 style="text-align: center">${otp}</h1>
+    																		<p style="margin: 0; font-size: 14px; text-align: center; mso-line-height-alt: 25.2px;"><span style="font-size:14px;">hi ${name}<br />Confirm your email to be able to use RyHar-MD. Send this code to the bot and it will expire in 5 minutes.<br /><br /></span></p><h1 style="text-align: center">${otp}</h1>
 
     																	</div>
 
@@ -598,7 +598,7 @@ let handler = async(m, {conn, text}) => {
 
     																			<div class="menu-trigger" style="display:none;max-height:0px;max-width:0px;font-size:0px;overflow:hidden;"><label class="menu-label" for="memu-r6c0m1" style="height: 36px; width: 36px; display: inline-block; cursor: pointer; mso-hide: all; user-select: none; align: center; text-align: center; color: #ffffff; text-decoration: none; background-color: #000000; border-radius: 0;"><span class="menu-open" style="mso-hide:all;font-size:26px;line-height:31.5px;">☰</span><span class="menu-close" style="display:none;mso-hide:all;font-size:26px;line-height:36px;">✕</span></label></div>
 
-    																			<div class="menu-links"><!--[if mso]><table role="presentation" border="0" cellpadding="0" cellspacing="0" align="center" style=""><tr style="text-align:center;"><![endif]--><!--[if mso]><td style="padding-top:5px;padding-right:5px;padding-bottom:5px;padding-left:5px"><![endif]--><span class="label" style="mso-hide:false;padding-top:5px;padding-bottom:5px;padding-left:5px;padding-right:5px;display:inline;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;font-size:14px;color:false;letter-spacing:normal;">© 2023 ktdprjct. All rights reserved.</span><!--[if mso]></td><![endif]--><!--[if mso]></tr></table><![endif]--></div>
+    																			<div class="menu-links"><!--[if mso]><table role="presentation" border="0" cellpadding="0" cellspacing="0" align="center" style=""><tr style="text-align:center;"><![endif]--><!--[if mso]><td style="padding-top:5px;padding-right:5px;padding-bottom:5px;padding-left:5px"><![endif]--><span class="label" style="mso-hide:false;padding-top:5px;padding-bottom:5px;padding-left:5px;padding-right:5px;display:inline;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;font-size:14px;color:false;letter-spacing:normal;">© 2023 Rahardiyan. All rights reserved.</span><!--[if mso]></td><![endif]--><!--[if mso]></tr></table><![endif]--></div>
 
     																		</td>
 
