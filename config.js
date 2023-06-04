@@ -193,8 +193,6 @@ global.tunggu = '⏱️'
 global.done = '✅'
 global.website = 'http://rhrdiyan.my.id'
 
-global.multiplier = 120
-
 
 // batas
 
