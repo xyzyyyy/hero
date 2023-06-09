@@ -6,15 +6,15 @@ async function handler(m, { conn, args }) {
     try {
         let user = global.db.data.users[m.sender]
         let count = (args[0] && number(parseInt(args[0])) ? Math.max(parseInt(args[0]), 1) : /all/i.test(args[0]) ? Math.floor(parseInt(user.money)) : 1) * 1
-        if ((user.money * 1) < count) return m.reply('💹 Uang kamu tidak cukup!!')
+        if ((user.money * 1) < count) return m.reply('💹 Sok sok an mau judi money ae kagak punya')
         if (!(m.sender in confirm)) {
             confirm[m.sender] = {
                 sender: m.sender,
                 count,
                 timeout: setTimeout(() => (m.reply('timed out'), delete confirm[m.sender]), 60000)
             }
-            let txt = `Apakah anda yakin mau melakukan judi (Y/n)\n\n*Taruhan:* ${count} 💹\n⏰ 60s Timeout`
-            return conn.sendButton(m.chat, txt, 'Jangan Judi :v', null, [['✔️'], ['✖️']], m)
+            let txt = `Apakah anda yakin mau melakukan judi (Y = ✔️/ n = ✖️)\n\n*Taruhan:* ${count} 💹\n⏰ 60s Timeout`
+            return m.reply(txt)
         }
     } catch (e) {
         console.error(e)

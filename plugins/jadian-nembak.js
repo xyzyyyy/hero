@@ -1,4 +1,4 @@
-let { areJidsSameUser } = require('baileys')
+import { areJidsSameUser } from '@adiwajshing/baileys'
 let toM = a => '@' + a.split('@')[0]
 let handler = async (m, { conn, usedPrefix, text, participants, groupMetadata}) => {
 if(!text) {
@@ -13,7 +13,8 @@ let ps = groupMetadata.participants.map(v => v.id)
     })
     */
     let caption = `*Love Message...* ${toM(a)} ❤️ ${toM(b)}\n${await ktnmbk.getRandom()}`
-    await conn.reply(m.chat, caption, m)
+    await conn.sendButton(m.chat, caption, wm, null, [['jodohnya', `${usedPrefix}jodohnya`],['jodohku', `${usedPrefix}jodohku`]], m, { mentions: conn.parseMention(caption) })
+    }
 	if(isNaN(text)) {
   	var number = text.split`@`[1]
   } else if(!isNaN(text)) {
@@ -66,7 +67,7 @@ handler.tags = ['jadian']
 handler.command = /^(tembak|jadian)$/i
 handler.group = true
 
-module.exports = handler
+export default handler
 
 
 let ktnmbk = [

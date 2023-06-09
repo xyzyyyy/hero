@@ -1,8 +1,8 @@
 async function handler(m, { conn, usedPrefix, command, text }) {
-    let user = global.db.data.users[m.sender]
-    let SWORD = user.sword < 1
-    let ARMOR = user.armor < 1
-    let HEALTH = user.health < 90
+    let users = global.db.data.users[m.sender]
+    let SWORD = users.sword < 1
+    let ARMOR = users.armor < 1
+    let HEALTH = users.health < 90
     let prefix = usedPrefix
     if (SWORD || ARMOR || HEALTH) {
         const buttons = []
@@ -12,7 +12,7 @@ async function handler(m, { conn, usedPrefix, command, text }) {
         if (ARMOR) buttons.push({buttonId: `${prefix}shop buy armor`, buttonText: {displayText: 'Beli Armor'}, type: 1})
         if (HEALTH) buttons.push({buttonId: `${prefix}heal`, buttonText: {displayText: 'Healing'}, type: 1})
         
-        let lmao = item(user.sword * 1, user.armor * 1, user.health * 1, usedPrefix)
+        let lmao = item(users.sword * 1, users.armor * 1, users.health * 1, usedPrefix)
         if (buttons.length == 0) return m.reply(lmao)   
         const buttonMessage = {
             text: lmao,
@@ -20,11 +20,11 @@ async function handler(m, { conn, usedPrefix, command, text }) {
             buttons: buttons,
             headerType: 1
         }
-        return conn.sendMessage(m.chat, buttonMessage, { quoted: m }) // nak durung menuhi syarat
+        return m.reply(lmao) // nak durung menuhi syarat
     }
     global.dungeon = global.dungeon ? global.dungeon : {}
     if (Object.values(global.dungeon).find(room => room.id.startsWith('dungeon') && [room.game.player1, room.game.player2, room.game.player3, room.game.player4].includes(m.sender))) return m.reply('Kamu masih di dalam Dungeon') // nek iseh neng njero dungeon
-    let timing = (new Date - (user.lastdungeon * 1)) * 1
+    let timing = (new Date - (users.lastdungeon * 1)) * 1
     if (timing < 600000) return m.reply(`Silahkan tunggu ${clockString(600000 - timing)} untuk bisa ke Dungeon`) // Cooldown
     let room = Object.values(global.dungeon).find(room => room.state === 'WAITING' && (text ? room.name === text : true))
     if (room) {
@@ -62,13 +62,13 @@ async function handler(m, { conn, usedPrefix, command, text }) {
             buttons: buttons,
             headerType: 1
         }
-        conn.sendMessage(m.chat, buttonMessage, { quoted: m })
+        m.reply(lmao)
         
         if (room.game.player1 && room.game.player2 && room.game.player3 && room.game.player4) {
 
         // Hadiah ben do seneng :v
-        room.price.money += (Math.floor(Math.random() * 1000001)) * 1
-        room.price.exp += (Math.floor(Math.random() * 500001)) * 1
+        room.price.money += (Math.floor(Math.random() * 100001)) * 1
+        room.price.exp += (Math.floor(Math.random() * 50001)) * 1
         room.price.iron += (pickRandom([0, 0, 0, 0, 1, 0, 0, 0])) * 1
         room.game.diamond += (pickRandom([0, 2, 0, 1, 0, 1, 0, 0, 3, 0, 0, 1, 2, 0, 0])) * 1
         room.game.sampah += (Math.floor(Math.random() * 101)) * 1
@@ -336,7 +336,7 @@ ${usedPrefix}${command} ${text}` : '') + '\natau ketik *sendiri* untuk bermain s
             buttons: buttons,
             headerType: 1
         }
-        conn.sendMessage(m.chat, buttonMessage, { quoted: m })
+        m.reply(lmao)
         global.dungeon[room.id] = room
       }
 }
@@ -373,7 +373,7 @@ handler.before = function (m) {
           headerType: 1
       }
   
-      if (room.player2 || room.player3 || room.player4) return this.sendMessage(m.chat, buttonMessage, { quoted: m })
+      if (room.player2 || room.player3 || room.player4) return this.sendMessage(m.chat, lmao, { quoted: m })
       room.state = 'PLAYING'
       let str = `
 Room ID: ${room.id}
