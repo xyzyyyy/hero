@@ -99,9 +99,9 @@ Dan hanya bisa dimainkan oleh player yang terdaftar`.trim()
        }
     }
 }
-handler.help = ['sambungkata']
+handler.help = ['sambungkata *BUG*']
 handler.tags = ['game']
-handler.command = /^s(ambung)?kata(debug)?$/i
+//handler.command = /^s(ambung)?kata(debug)?$/i
 handler.group = true
 handler.game = true
 module.exports = handler
