@@ -14,7 +14,7 @@ let handler = async (m, ctx) => {
 
 			let img = await webp2png(await q.download())
 
-			await conn.sendFile(m.chat, `https://xznsenpai.xyz/api/toanime?url=${img}`, '.jpg', 'Success\n\njngn lupa dukung bot ini https://saweria.co/rahardiyan', m)
+			await conn.sendFile(m.chat, `https://xzn.wtf/api/toanime?url=${img}&apikey=ryhar`, '.jpg', 'Success\n\njngn lupa dukung bot ini https://saweria.co/rahardiyan', m)
 
 		} else throw `kirim / reply gambar`
 

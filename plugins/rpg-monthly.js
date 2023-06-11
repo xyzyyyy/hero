@@ -15,7 +15,7 @@ let handler = async (m) => {
         user[reward] += rewards[reward]
         text += `*+${rewards[reward]}* ${rpg.emoticon(reward)}${reward}\n`
     }
-    conn.sendButton(m.chat, text.trim(), m)
+    m.reply(m.chat, text.trim(), m)
     user.lastmonthly = new Date * 1
 }
 handler.help = ['monthly']
