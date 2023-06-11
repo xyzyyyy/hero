@@ -5,9 +5,9 @@ var handler = async (m, { text, command, usedPrefix }) => {
 let res = await ask(text)
 await conn.reply(m.chat, res, m) 
 }
-handler.help = ['ai <hello>']
-handler.tags = ['internet']
-handler.command = /^(ai|openai)$/i
+//handler.help = ['ai <hello>']
+//handler.tags = ['internet']
+//handler.command = /^(ai|openai)$/i
 
 module.exports = handler
 

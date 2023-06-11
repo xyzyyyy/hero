@@ -332,9 +332,9 @@ let hasil = `${pickRandom(['https://b.top4top.io/m_1931yxodg0.mp4',
 'https://f.top4top.io/m_19699qk6w1.mp4',
 'https://g.top4top.io/m_1967uvzs61.mp4'])}`
 
-handler.help = ['asupan']
+handler.help = ['asupan *BUG*']
 handler.tags = ['internet']
-handler.command = /^asupan$/i
+//handler.command = /^asupan$/i
 
 module.exports = handler
 

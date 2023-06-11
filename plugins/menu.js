@@ -18,6 +18,7 @@ let tags = {
   'game': 'MENU GAME',
   'github': 'MENU GITHUB',
   'group': 'MENU GROUP',
+  'jadian': 'MENU JADIAN *BUG & ERROR*',
   'image': 'MENU IMAGE',
   'info': 'MENU INFO',
   'internet': 'INTERNET',

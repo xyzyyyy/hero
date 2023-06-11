@@ -4,7 +4,7 @@ let handler = async(m, { conn, text, command, usedPrefix, isBotAdmin }) => {
   let who = num.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
   if (who == m.sender) throw 'Kirim menfess ke diri sendiri?\ngokil:v'
   m.react('✅')
-  let sen = await conn.reply(who, `*MENFESSIN!*\n\nHalo *${conn.getName(who)}* ada pesan kecil dari seseorang yang tidak ingin disebut namanya 😇\n\nPesan : `+ pesan + `\n\n_wajib Gesek pesan ini / reply pesan ini kekanan untuk mengirim balasan menfess_`, 0, {      
+  let sen = await conn.reply(who, `*MENFESSIN!*\n\nHalo *${conn.getName(who)}* ada pesan kecil dari seseorang yang tidak ingin disebut namanya 😇\n\nPesan : `+ pesan + `\n\n_wajib gesek pesan ini / reply pesan ini kekanan untuk mengirim balasan confess_`, 0, {      
     ephemeralExpiration: 86400,
     contextInfo: {
       mentionedJid: [m.sender],
@@ -21,7 +21,7 @@ let handler = async(m, { conn, text, command, usedPrefix, isBotAdmin }) => {
   if (sen) conn.reply(m.chat, `Sukses mengirim pesan rahasia ke ${m.isGroup ? conn.getName(who) : `@${parseInt(who)}`}`, m.isGroup ? null : m, { mentions: [who] })
   else throw 'Harap gunakan nomor yang valid!'
 }
-handler.help = ['menfess'].map(v => v + ' <number|text>')
+handler.help = ['menfess *BUG*']
 handler.tags = ['main', 'fun']
-handler.command = /^(menfess|menfes|confess|confes)$/i
+//handler.command = /^(menfess|menfes|confess|confes)$/i
 module.exports = handler

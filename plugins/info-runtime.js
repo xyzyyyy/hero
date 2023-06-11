@@ -9,8 +9,8 @@ let runnya = `
 ⏲️ Waktu/Jam: ${time} WIB
 💌 Aktif Selama : ${uptime}
 🌹 Tag : @${who.split`@`[0]}`
-
-conn.sendMessage(m.chat, runnya, who, m)
+  }
+conn.sendMessage(m.chat, runnya, m)
 handler.help = ['runtime']
 handler.tags = ['info']
 handler.command = /^(uptime|runtime)$/i

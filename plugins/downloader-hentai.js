@@ -1,4 +1,4 @@
-/* const { NHentai } = require('@shineiichijo/nhentai-ts')
+const { NHentai } = require('@shineiichijo/nhentai-ts')
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
   if (!args[0]) throw `${set.sb} *Example* : ${usedPrefix + command} 401998`
@@ -12,4 +12,4 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 handler.help = ['nhentai'].map(v => v + ' <id>')
 handler.tags = ['downloader']
 handler.command = /^(nhentai)$/i
-module.exports = handler */
+module.exports = handler 

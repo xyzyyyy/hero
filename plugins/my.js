@@ -22,8 +22,8 @@ let date = d.toLocaleDateString(locale, {
 
     })
 
-let { name, limit, exp, level, money, atm } = global.db.data.users[who]
-
+let { name, limit, exp, level, money, atm, pasangan } = global.db.data.users[who]
+let jodoh = `Berpacaran Dengan @${pasangan.split`@`[0]}`
 let text = `*•━━━ ❮❮ P R O F I L E ❯❯ ━━━•*
 
 ⌬ ❯❯ Nama = *${name}*
@@ -31,36 +31,17 @@ let text = `*•━━━ ❮❮ P R O F I L E ❯❯ ━━━•*
 ⌬ ❯❯ Exp = *${exp}*
 ⌬ ❯❯ Level = *${level}*
 ⌬ ❯❯ Money = *${money}*
-⌬ ❯❯ ATM = *${atm}*`
+⌬ ❯❯ ATM = *${atm}*
+⌬ ❯❯ Status: ${pasangan ? jodoh : 'Awokwok Jomblo' }`
 
-conn.sendMessage(m.chat, {
-
-text: text,
-
-contextInfo: {
-
-externalAdReply: {
-
-title: date,
-
-body: 'bodynya',
-
-thumbnailUrl: "https://telegra.ph/file/b0112a95e8d2eb2aaeab9.jpg",
-
-sourceUrl: "https://chat.whatsapp.com/KZwneZawhyx5udc2XzUe7W",
-
-mediaType: 1,
-
-renderLargerThumbnail: true
-
-}}}, { quoted: m})
+conn.sendMessage(m.chat, text, m)
 
 }
 
-handler.help = ['my [@user]']
+handler.help = ['my [@user] *BUG*']
 
 handler.tags = ['xp']
 
-handler.command = /^(my)$/i
+//handler.command = /^(my)$/i
 
 module.exports = handler

@@ -1,4 +1,4 @@
-import { areJidsSameUser } from '@adiwajshing/baileys'
+let { areJidsSameUser } = require('baileys')
 
 let handler = async (m, { conn, text, participants, groupMetadata }) => {
 	if(isNaN(text)) {
@@ -41,4 +41,4 @@ handler.command = /^(terima)$/i
 handler.group = true
 handler.limit = false
 handler.fail = null
-export default handler
+module.exports = handler

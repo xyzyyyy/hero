@@ -14,9 +14,9 @@ let handler = async(m, { conn, isGroup, isAdmin, participants, groupMetadata }) 
  txt += '┗━━━━━━━━━━━━━━'     
  conn.reply(m.chat, txt, m, { contextInfo: { mentionedJid: mimin }})
 }
-handler.help = ['listmember','tagall','tagmember']
-handler.tags = ['group']
-handler.command = /^(listmember|tagall|tagmember)$/i
+//handler.help = ['listmember','tagall','tagmember']
+//handler.tags = ['group']
+//handler.command = /^(listmember|tagall|tagmember)$/i
 handler.group = true
 //handler.admin = true
 

@@ -58,8 +58,8 @@ ${usedPrefix}${command} ${text}` : ''))
     }
 }
 
-handler.help = ['tictactoe', 'ttt'].map(v => v + ' [custom room name]')
+handler.help = ['tictactoe *ERROR*']
 handler.tags = ['game']
-handler.command = /^(tictactoe|t{3})$/
+//handler.command = /^(tictactoe|t{3})$/
 
 module.exports = handler

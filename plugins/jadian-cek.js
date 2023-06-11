@@ -52,4 +52,4 @@ handler.help = ['cekpacar']
 handler.tags = ['jadian']
 handler.command = /^(cekpacar)$/i
 
-export default handler
+module.exports = handler

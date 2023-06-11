@@ -23,8 +23,8 @@ Contoh penggunaan: ${usedPrefix}math medium
     }, math.time)
   ]
 }
-//handler.help = ['math <mode>']
-//handler.tags = ['game']
+handler.help = ['math *BUG*']
+handler.tags = ['game']
 //handler.command = /^math/i
 
 module.exports = handler
