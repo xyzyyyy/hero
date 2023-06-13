@@ -31,6 +31,7 @@ let text = `*•━━━ ❮❮ P R O F I L E ❯❯ ━━━•*
 ⌬ ❯❯ Exp = *${exp}*
 ⌬ ❯❯ Level = *${level}*
 ⌬ ❯❯ Money = *${money}*
+⌬ ❯❯ ATM = *${atm}*
 ⌬ ❯❯ RANK = *${role}*
 ⌬ ❯❯ Status: ${pasangan ? jodoh : 'Awokwok Jomblo' }`.trim()
 
