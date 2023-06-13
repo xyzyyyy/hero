@@ -32,9 +32,9 @@ let text = `*•━━━ ❮❮ P R O F I L E ❯❯ ━━━•*
 ⌬ ❯❯ Level = *${level}*
 ⌬ ❯❯ Money = *${money}*
 ⌬ ❯❯ RANK = *${role}*
-⌬ ❯❯ Status: ${pasangan ? jodoh : 'Awokwok Jomblo' }`
+⌬ ❯❯ Status: ${pasangan ? jodoh : 'Awokwok Jomblo' }`.trim()
 
-conn.reply(m.chat, text, m)
+conn.reply(m.chat, text, m, { mentions: conn.parseMention(text) })
 
 }
 
@@ -42,6 +42,6 @@ handler.help = ['my [@user] *BUG*']
 
 handler.tags = ['xp']
 
-handler.command = /^(my)$/i
 
+handler.command = /^(my)$/i
 module.exports = handler
