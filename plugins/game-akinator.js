@@ -42,7 +42,7 @@ let handler = async(m, { conn, args }) => {
                     if (conn.dbAkinator[m.chat].answers) {
                         let ans = conn.dbAkinator[m.chat].answers[0]
                         let hasil = `*AKINATOR GAME RESULT*\nSaya pikir itu adalah : \n\n=> *Jawaban:* ${ans.name}\n=> *Deskripsi:* ${ans.description}\nApakah jawaban saya benar?\nBenar : .akinator benar\nSalah : .akinator salah\nMulai Lagi : .akinator start`
-                        await conn.sendMessage(m.chat, hasil, m)
+                        await conn.reply(hasil)
                         return delete conn.dbAkinator[m.chat]
                     }
                 } else {
