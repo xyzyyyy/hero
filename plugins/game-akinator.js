@@ -90,7 +90,6 @@ let handler = async(m, { conn, args }) => {
         break
         
         default:
-            let img = await (await fetch(images)).buffer()
             let awalGame = `*AKINATOR GAME*\n\n Pikirkan seorang karakter fiksi atau nyata.\nBot akan mencoba untuk menebaknya\n.akinator start => Untuk mulai bermain Akinator\n.akinator stop => Untuk mulai bermain Akinator\n.akinator mysession => Untuk melihat sesi Akinator kamu\n`
             await conn.sendFile(m.chat, awalGame, m)
         break
