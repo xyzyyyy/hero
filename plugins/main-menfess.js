@@ -4,24 +4,12 @@ let handler = async(m, { conn, text, command, usedPrefix, isBotAdmin }) => {
   let who = num.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
   if (who == m.sender) throw 'Kirim menfess ke diri sendiri?\ngokil:v'
   m.react('✅')
-  let sen = await conn.reply(who, `*MENFESSIN!*\n\nHalo *${conn.getName(who)}* ada pesan kecil dari seseorang yang tidak ingin disebut namanya 😇\n\nPesan : `+ pesan + `\n\n_wajib gesek pesan ini / reply pesan ini kekanan untuk mengirim balasan confess_`, 0, {      
-    ephemeralExpiration: 86400,
-    contextInfo: {
-      mentionedJid: [m.sender],
-      externalAdReply :{
-        showAdAttribution: true,
-        title: 'MENFESSIN',
-        body: 'Follow instagram developer bot ツ yang ngak follow di banned',
-        thumbnail: await conn.getFile('https://telegra.ph/file/58c8b44e05443b1ea60ec.jpg').then(v => v.data),
-        sourceUrl: 'https://instagram.com/rahardiyan._.xyzyyyy'
-      }
-    } 
-  })
+  let sen = await conn.reply(who, `*MENFESSIN!*\n\nHalo *${conn.getName(who)}* ada pesan kecil dari seseorang yang tidak ingin disebut namanya 😇\n\nPesan : `+ pesan + `\n\n_wajib gesek pesan ini / reply pesan ini kekanan untuk mengirim balasan confess_`, contextInfo: { mentionedJid: [m.sender]})
   if (m.isGroup && isBotAdmin) m.delete()
   if (sen) conn.reply(m.chat, `Sukses mengirim pesan rahasia ke ${m.isGroup ? conn.getName(who) : `@${parseInt(who)}`}`, m.isGroup ? null : m, { mentions: [who] })
   else throw 'Harap gunakan nomor yang valid!'
 }
 handler.help = ['menfess *BUG*']
 handler.tags = ['main', 'fun']
-//handler.command = /^(menfess|menfes|confess|confes)$/i
+handler.command = /^(menfess|menfes|confess|confes)$/i
 module.exports = handler
