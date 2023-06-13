@@ -22,7 +22,7 @@ let date = d.toLocaleDateString(locale, {
 
     })
 
-let { name, limit, exp, level, money, atm, pasangan } = global.db.data.users[who]
+let { name, limit, exp, level, money, atm, role, pasangan } = global.db.data.users[who]
 let jodoh = `Berpacaran Dengan @${pasangan.split`@`[0]}`
 let text = `*•━━━ ❮❮ P R O F I L E ❯❯ ━━━•*
 
@@ -31,7 +31,7 @@ let text = `*•━━━ ❮❮ P R O F I L E ❯❯ ━━━•*
 ⌬ ❯❯ Exp = *${exp}*
 ⌬ ❯❯ Level = *${level}*
 ⌬ ❯❯ Money = *${money}*
-⌬ ❯❯ ATM = *${atm}*
+⌬ ❯❯ RANK = *${role}*
 ⌬ ❯❯ Status: ${pasangan ? jodoh : 'Awokwok Jomblo' }`
 
 conn.sendMessage(m.chat, text, m)
