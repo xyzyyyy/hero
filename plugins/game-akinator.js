@@ -42,7 +42,7 @@ let handler = async(m, { conn, args }) => {
                     if (conn.dbAkinator[m.chat].answers) {
                         let ans = conn.dbAkinator[m.chat].answers[0]
                         let hasil = `*AKINATOR GAME RESULT*\nSaya pikir itu adalah : \n\n=> *Jawaban:* ${ans.name}\n=> *Deskripsi:* ${ans.description}\nApakah jawaban saya benar?\nBenar : .akinator benar\nSalah : .akinator salah\nMulai Lagi : .akinator start`
-                        await conn.sendMessage(m.chat, hasil, wm, await (await fetch(conn.dbAkinator[m.chat].answers[0].absolute_picture_path)).buffer(), m)
+                        await conn.sendMessage(m.chat, hasil, await (await fetch(conn.dbAkinator[m.chat].answers[0].absolute_picture_path)).buffer(), m)
                         return delete conn.dbAkinator[m.chat]
                     }
                 } else {
@@ -92,7 +92,7 @@ let handler = async(m, { conn, args }) => {
         default:
             let img = await (await fetch(images)).buffer()
             let awalGame = `*AKINATOR GAME*\n\n Pikirkan seorang karakter fiksi atau nyata.\nBot akan mencoba untuk menebaknya\n.akinator start => Untuk mulai bermain Akinator\n.akinator stop => Untuk mulai bermain Akinator\n.akinator mysession => Untuk melihat sesi Akinator kamu\n`
-            await conn.sendFile(m.chat, awalGame, img, m)
+            await conn.sendFile(m.chat, awalGame, img, '.jpg', m)
         break
     } // switch
 }
