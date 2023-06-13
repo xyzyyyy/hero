@@ -4,7 +4,7 @@ let handler = async(m, { conn, text, command, usedPrefix, isBotAdmin }) => {
   let who = num.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
   if (who == m.sender) throw 'Kirim menfess ke diri sendiri?\ngokil:v'
   m.react('✅')
-  let sen = await conn.reply(who, `*MENFESSIN!*\n\nHalo *${conn.getName(who)}* ada pesan kecil dari seseorang yang tidak ingin disebut namanya 😇\n\nPesan : `+ pesan + `\n\n_wajib gesek pesan ini / reply pesan ini kekanan untuk mengirim balasan confess_`, contextInfo: { mentionedJid: [m.sender]})
+  let sen = await conn.sendMessage(who, `*MENFESSIN!*\n\nHalo *${conn.getName(who)}* ada pesan kecil dari seseorang yang tidak ingin disebut namanya 😇\n\nPesan : `+ pesan + `\n\n_wajib gesek pesan ini / reply pesan ini kekanan untuk mengirim balasan confess_`, contextInfo: { mentionedJid: [m.sender]})
   if (m.isGroup && isBotAdmin) m.delete()
   if (sen) conn.reply(m.chat, `Sukses mengirim pesan rahasia ke ${m.isGroup ? conn.getName(who) : `@${parseInt(who)}`}`, m.isGroup ? null : m, { mentions: [who] })
   else throw 'Harap gunakan nomor yang valid!'
