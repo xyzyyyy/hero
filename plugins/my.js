@@ -42,6 +42,6 @@ handler.help = ['my [@user] *BUG*']
 
 handler.tags = ['xp']
 
-//handler.command = /^(my)$/i
+handler.command = /^(my)$/i
 
 module.exports = handler
