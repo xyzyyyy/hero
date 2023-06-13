@@ -34,7 +34,7 @@ let text = `*•━━━ ❮❮ P R O F I L E ❯❯ ━━━•*
 ⌬ ❯❯ RANK = *${role}*
 ⌬ ❯❯ Status: ${pasangan ? jodoh : 'Awokwok Jomblo' }`
 
-conn.sendMessage(m.chat, text, m)
+conn.reply(m.chat, text, m)
 
 }
 
