@@ -177,7 +177,7 @@ global.set = {
                 // 'https://website': 'apikey'
                'https://api.neoxr.my.id': '5VC9rvNx',
                'https://xzn.wtf':
-                 'ryhar'
+                 'ryhar',
                'https://violetics.pw': '0b55-fada-712f',
                'https://api.xteam.xyz': 'd90a9e986e18778b',
                'https://zahirr-web.herokuapp.com': 'zahirgans',      
