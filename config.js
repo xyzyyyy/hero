@@ -166,6 +166,7 @@ global.set = {
             s: {// API Prefix
                 // name: 'https://website'
                 neoxr: 'https://api.neoxr.my.id',
+                xzn: 'https://xzn.wtf',
                 violet: 'https://violetics.pw',
                 xteam: 'https://api.xteam.xyz',
                 zahir: 'https://zahirr-web.herokuapp.com',
@@ -175,6 +176,8 @@ global.set = {
             s: {// APIKey Here
                 // 'https://website': 'apikey'
                'https://api.neoxr.my.id': '5VC9rvNx',
+               'https://xzn.wtf':
+                 'ryhar'
                'https://violetics.pw': '0b55-fada-712f',
                'https://api.xteam.xyz': 'd90a9e986e18778b',
                'https://zahirr-web.herokuapp.com': 'zahirgans',      
