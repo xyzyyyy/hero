@@ -169,90 +169,42 @@ handler.before = async function(m, { conn }){
         } else m.reply(`Soal itu sudah lewat`)
       }
     }
-//family100_
-async function before(m) {
-    this.game = this.game ? this.game : {}
-    let id = 'family100_' + m.chat
-    if (!(id in this.game))
-        return !0
-    let room = this.game[id]
-    let text = m.text.toLowerCase().replace(/[^\w\s\-]+/, '')
-    let isSurrender = /^((me)?nyerah|surr?ender)$/i.test(m.text)
-    if (!isSurrender) {
-        let index = room.jawaban.indexOf(text)
-        if (index < 0) {
-            if (Math.max(...room.jawaban.filter((_, index) => !room.terjawab[index]).map(jawaban => similarity(jawaban, text))) >= threshold)
-                m.reply('Dikit lagi!')
-            return !0
-        }
-        if (room.terjawab[index])
-            return !0
-        let users = global.db.data.users[m.sender]
-        room.terjawab[index] = m.sender
-        users.exp += room.winScore
-    }
-    let isWin = room.terjawab.length === room.terjawab.filter(v => v).length
-    let caption = `
-*Soal:* ${room.soal}
-Terdapat *${room.jawaban.length}* jawaban${room.jawaban.find(v => v.includes(' ')) ? `
-(beberapa jawaban terdapat spasi)
-` : ''}
-${isWin ? `*SEMUA JAWABAN TERJAWAB*` : isSurrender ? '*MENYERAH!*' : ''}
-${Array.from(room.jawaban, (jawaban, index) => {
-        return isSurrender || room.terjawab[index] ? `(${index + 1}) ${jawaban} ${room.terjawab[index] ? '@' + room.terjawab[index].split('@')[0] : ''}`.trim() : false
-    }).filter(v => v).join('\n')}
-${isSurrender ? '' : `+${room.winScore} XP tiap jawaban benar`}
-    `.trim()
-    const msg = await this.reply(m.chat, caption, {
-        mentions: this.parseMention(caption)
-    })
-    room.msg = msg
-    if (isWin || isSurrender)
-        delete this.game[id]
-    return !0
-}
     // role user
     let role = (user.level <= 3) ? 'Warrior V'
-    : ((user.level >= 3) && (user.level <= 50)) ? 'Warrior IV'
-    : ((user.level >= 50) && (user.level <= 100)) ? 'Warrior III'
-    : ((user.level >= 100) && (user.level <= 150)) ? 'Warrior II'
-    : ((user.level >= 150) && (user.level <= 200)) ? 'Warrior I'
-    : ((user.level >= 200) && (user.level <= 250)) ? 'Elite V'
-    : ((user.level >= 250) && (user.level <= 300)) ? 'Elite IV'
-    : ((user.level >= 300) && (user.level <= 350)) ? 'Elite III'
-    : ((user.level >= 350) && (user.level <= 400)) ? 'Elite II'
-    : ((user.level >= 400) && (user.level <= 450)) ? 'Elite I'
-    : ((user.level >= 450) && (user.level <= 500)) ? 'Master V'
-    : ((user.level >= 500) && (user.level <= 550)) ? 'Master IV'
-    : ((user.level >= 550) && (user.level <= 600)) ? 'Master III'
-    : ((user.level >= 600) && (user.level <= 650)) ? 'Master II'
-    : ((user.level >= 650) && (user.level <= 700)) ? 'Master I'
-    : ((user.level >= 700) && (user.level <= 750)) ? 'Grand Master V'
-    : ((user.level >= 750) && (user.level <= 800)) ? 'Grand Master IV'
-    : ((user.level >= 800) && (user.level <= 850)) ? 'Grand Master III'
-    : ((user.level >= 850) && (user.level <= 900)) ? 'Grand Master II'
-    : ((user.level >= 900) && (user.level <= 950)) ? 'Grand Master I'
-    : ((user.level >= 950) && (user.level <= 1000)) ? 'Epic V'
-    : ((user.level >= 1000) && (user.level <= 1050)) ? 'Epic IV'
-    : ((user.level >= 1050) && (user.level <= 1100)) ? 'Epic III'
-    : ((user.level >= 1100) && (user.level <= 1150)) ? 'Epic II'
-    : ((user.level >= 1150) && (user.level <= 1200)) ? 'Epic I'
-    : ((user.level >= 1200) && (user.level <= 1250)) ? 'Legend V'
-    : ((user.level >= 1250) && (user.level <= 1300)) ? 'Legend IV'
-    : ((user.level >= 1300) && (user.level <= 1350)) ? 'Legend III'
-    : ((user.level >= 1350) && (user.level <= 1400)) ? 'Legend II'
-    : ((user.level >= 1400) && (user.level <= 1450)) ? 'Legend I'
-    : ((user.level >= 1450) && (user.level <= 1500)) ? 'Mythic V'
-    : ((user.level >= 1500) && (user.level <= 1550)) ? 'Mythic IV'
-    : ((user.level >= 1550) && (user.level <= 1600)) ? 'Mythic III' 
-    : ((user.level >= 1600) && (user.level <= 1650)) ? 'Mythic II' 
-    : ((user.level >= 1650) && (user.level <= 1700)) ? 'Mythic I'
-    : ((user.level >= 1700) && (user.level <= 1750)) ? 'Mythic Honor V'
-    : ((user.level >= 1750) && (user.level <= 1800)) ? 'Mythic Honor IV'
-    : ((user.level >= 1800) && (user.level <= 1850)) ? 'Mythic Honor III'
-    : ((user.level >= 1850) && (user.level <= 1900)) ? 'Mythic Honor II'
-    : ((user.level >= 1900) && (user.level <= 1950)) ? 'Mythic Honor I'
-    : 'Mythic Glory'
+    : ((user.level >= 3) && (user.level <= 6)) ? 'Warrior IV'
+    : ((user.level >= 6) && (user.level <= 9)) ? 'Warrior III'
+    : ((user.level >= 9) && (user.level <= 12)) ? 'Warrior II'
+    : ((user.level >= 12) && (user.level <= 15)) ? 'Warrior I'
+    : ((user.level >= 15) && (user.level <= 18)) ? 'Elite V'
+    : ((user.level >= 18) && (user.level <= 21)) ? 'Elite IV'
+    : ((user.level >= 21) && (user.level <= 24)) ? 'Elite III'
+    : ((user.level >= 24) && (user.level <= 27)) ? 'Elite II'
+    : ((user.level >= 27) && (user.level <= 30)) ? 'Elite I'
+    : ((user.level >= 30) && (user.level <= 33)) ? 'Master V'
+    : ((user.level >= 33) && (user.level <= 36)) ? 'Master IV'
+    : ((user.level >= 36) && (user.level <= 39)) ? 'Master III'
+    : ((user.level >= 39) && (user.level <= 42)) ? 'Master II'
+    : ((user.level >= 42) && (user.level <= 45)) ? 'Master I'
+    : ((user.level >= 45) && (user.level <= 48)) ? 'Grand Master V'
+    : ((user.level >= 48) && (user.level <= 51)) ? 'Grand Master IV'
+    : ((user.level >= 51) && (user.level <= 54)) ? 'Grand Master III'
+    : ((user.level >= 54) && (user.level <= 57)) ? 'Grand Master II'
+    : ((user.level >= 57) && (user.level <= 60)) ? 'Grand Master I'
+    : ((user.level >= 60) && (user.level <= 63)) ? 'Epic V'
+    : ((user.level >= 63) && (user.level <= 66)) ? 'Epic IV'
+    : ((user.level >= 66) && (user.level <= 69)) ? 'Epic III'
+    : ((user.level >= 69) && (user.level <= 71)) ? 'Epic II'
+    : ((user.level >= 71) && (user.level <= 74)) ? 'Epic I'
+    : ((user.level >= 74) && (user.level <= 77)) ? 'Legend V'
+    : ((user.level >= 77) && (user.level <= 80)) ? 'Legend IV'
+    : ((user.level >= 80) && (user.level <= 83)) ? 'Legend III'
+    : ((user.level >= 83) && (user.level <= 86)) ? 'Legend II'
+    : ((user.level >= 86) && (user.level <= 89)) ? 'Legend I'
+    : ((user.level >= 89) && (user.level <= 91)) ? 'Mythic V'
+    : ((user.level >= 91) && (user.level <= 94)) ? 'Mythic IV'
+    : ((user.level >= 94) && (user.level <= 97)) ? 'Mythic III' 
+    : ((user.level >= 97) && (user.level <= 100)) ? 'Mythic II' 
+    : 'Mythic I'
     user.role = role
     //=========
 }

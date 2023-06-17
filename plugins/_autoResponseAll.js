@@ -11,7 +11,7 @@ handler.before = async function(m, { match, usedPrefix, command, conn }) {
     if (setting.statusUpdate) {
         let _uptime = process.uptime() * 1000;
         let uptime = _uptime.toTimeString();
-        conn.updateProfilePicture(`Uptime: ${uptime} | Mode: ${set.opts['self'] ? "Private" : "Publik"} | Database: ${Object.keys(db.data.users).length} user | Made with ♡ by ` + set.wm ).catch(_ => _);         
+        conn.updateProfileStatus(`Uptime: ${uptime} | Mode: ${set.opts['self'] ? "Private" : "Publik"} | Database: ${Object.keys(db.data.users).length} user | Made with ♡ by ` + set.wm ).catch(_ => _);         
     } 
     // did you mean
     /* if ((usedPrefix = (match[0] || '')[0])) {
