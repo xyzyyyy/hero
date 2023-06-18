@@ -25,7 +25,7 @@ Contoh penggunaan: ${usedPrefix}math medium
 }
 handler.help = ['math *BUG*']
 handler.tags = ['game']
-//handler.command = /^math/i
+handler.command = /^math/i
 
 module.exports = handler
 
