@@ -4,8 +4,7 @@ const threshold = 0.72
 let handler = m => m
 
 handler.before = async function(m, { conn }){
-    let rowGame = Object.values(plugins).filter(v => v.tags == "game").map(v => v.help).flat(1).map(v => v.split(' ')[0])
-    let setting = global.db.data.settings[conn.user.jid]
+	let setting = global.db.data.settings[conn.user.jid]
     let user = global.db.data.users[m.sender]
     let chat = global.db.data.chats[m.chat]
     let id = m.chat
@@ -20,12 +19,12 @@ handler.before = async function(m, { conn }){
       if (m.text == math.result) {
         user.exp += math.bonus
         clearTimeout(conn.math[id][3])
-        await conn.sendListM(m.chat, `${set.sa} C O N G R A T S\n`, `Selamat @${parseInt(m.sender)}\nJawaban *${m.text}* benar!\n\nBonus: *+${math.bonus}* XP `, set.wm, rowGame, m)                
+        await conn.sendMessage(m.chat, `*C O N G R A T S*\nSelamat @${parseInt(m.sender)}\nJawaban *${m.text}* benar!\n\nBonus: *+${math.bonus}* XP`, m)                
         delete conn.math[id]
       } else {
         if (--conn.math[id][2] == 0) {
           clearTimeout(conn.math[id][3])
-          await conn.sendListM(m.chat, `${set.sa} O P P O R T U N I T Y  I S  U P\n`, `Maaf @${parseInt(m.sender)}\nkesempatan menjawab sudah habis!\n\nJawaban: *${math.result}*`, set.wm, rowGame, m)                          
+          await conn.sendMessage(m.chat, `*O P P O R T U N I T Y  I S  U P*\nMaaf @${parseInt(m.sender)}\nkesempatan menjawab sudah habis!\n\nJawaban: *${math.result}*`, m)                          
           delete conn.math[id]
         } else m.reply(`*Jawaban Salah!*\nMasih ada ${conn.math[id][2]} kesempatan`)
       }
