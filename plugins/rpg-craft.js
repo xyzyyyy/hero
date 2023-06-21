@@ -108,7 +108,7 @@ let lgocraft = `
             break
 
           default:
-            return await conn.sendMessage(m.chat, listMessage)
+            return await m.reply(caption)
         }
     } else if (/enchant|enchan/i.test(command)) {
       const count = args[2] && args[2].length > 0 ? Math.min(99999999, Math.max(parseInt(args[2]), 1)) : !args[2] || args.length < 4 ? 1 :Math.min(1, count)
