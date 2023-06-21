@@ -58,10 +58,10 @@ let lgocraft = `
         switch (type) {
           case 'pickaxe':
           if (user.pickaxe > 0) return m.reply('Kamu sudah memilik ini')
-            if(user.rock < 5 || user.kayu < 10 || user.iron < 5 || user.string < 20) return m.reply(`Barang tidak cukup!\nUntuk membuat pickaxe. Kamu memerlukan : \n10 kayu🪵 \n5 iron⛓\n20 String🕸️\n5 Batu 🪨`)
+            if(user.batu < 5 || user.kayu < 10 || user.iron < 5 || user.string < 20) return m.reply(`Barang tidak cukup!\nUntuk membuat pickaxe. Kamu memerlukan : \n10 kayu🪵 \n5 iron⛓\n20 String🕸️\n5 Batu 🪨`)
             global.db.data.users[m.sender].kayu -= 10
             global.db.data.users[m.sender].iron -= 5
-            user.rock -= 5
+            user.batu -= 5
             global.db.data.users[m.sender].string -= 20
             global.db.data.users[m.sender].pickaxe += 1
             user.pickaxedurability = 40
