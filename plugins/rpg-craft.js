@@ -58,8 +58,8 @@ let lgocraft = `
         switch (type) {
           case 'pickaxe':
           if (user.pickaxe > 0) return m.reply('Kamu sudah memilik ini')
-            if(user.rock < 5 || user.wood < 10 || user.iron < 5 || user.string < 20) return m.reply(`Barang tidak cukup!\nUntuk membuat pickaxe. Kamu memerlukan : \n10 kayu🪵 \n5 iron⛓\n20 String🕸️\n5 Batu 🪨`)
-            global.db.data.users[m.sender].wood -= 10
+            if(user.rock < 5 || user.kayu < 10 || user.iron < 5 || user.string < 20) return m.reply(`Barang tidak cukup!\nUntuk membuat pickaxe. Kamu memerlukan : \n10 kayu🪵 \n5 iron⛓\n20 String🕸️\n5 Batu 🪨`)
+            global.db.data.users[m.sender].kayu -= 10
             global.db.data.users[m.sender].iron -= 5
             user.rock -= 5
             global.db.data.users[m.sender].string -= 20
@@ -69,8 +69,8 @@ let lgocraft = `
             break
           case 'sword':
           if (user.sword > 0) return m.reply('Kamu sudah memilik ini')
-            if(user.wood < 10 || user.iron < 15) return m.reply(`Barang tidak cukup!\nUntuk membuat sword. Kamu memerlukan :\n10 kayu🪵\n15 iron⛓️`)
-            global.db.data.users[m.sender].wood -= 10
+            if(user.kayu < 10 || user.iron < 15) return m.reply(`Barang tidak cukup!\nUntuk membuat sword. Kamu memerlukan :\n10 kayu🪵\n15 iron⛓️`)
+            global.db.data.users[m.sender].kayu -= 10
             global.db.data.users[m.sender].iron -= 15
             global.db.data.users[m.sender].sword += 1
             user.sworddurability = 40
@@ -78,8 +78,8 @@ let lgocraft = `
             break
           case 'fishingrod':
           if (user.fishingrod > 0) return m.reply('Kamu sudah memilik ini')
-            if(user.wood < 20 || user.iron < 5 || user.string < 20) return m.reply(`Barang tidak cukup!\nUntuk membuat pancingan. Kamu memerlukan :\n10 kayu🪵\n5 iron⛓\n20 String🕸️`)
-            global.db.data.users[m.sender].wood -= 10
+            if(user.kayu < 20 || user.iron < 5 || user.string < 20) return m.reply(`Barang tidak cukup!\nUntuk membuat pancingan. Kamu memerlukan :\n10 kayu🪵\n5 iron⛓\n20 String🕸️`)
+            global.db.data.users[m.sender].kayu -= 10
             global.db.data.users[m.sender].iron -= 2
             global.db.data.users[m.sender].string -= 20
             global.db.data.users[m.sender].fishingrod += 1
