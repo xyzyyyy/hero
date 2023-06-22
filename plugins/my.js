@@ -42,6 +42,7 @@ conn.reply(m.chat, text, m, { mentions: conn.parseMention(text) })
 handler.help = ['my [@user] *BUG*']
 
 handler.tags = ['xp']
+handler.register = true
 
 
 handler.command = /^(my)$/i
