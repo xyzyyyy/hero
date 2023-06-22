@@ -886,31 +886,11 @@ global.set.dfail = async (type, m, conn) => {
         download: `Fitur *Downloader* Tidak Aktif Silahkan Hubungi @${set.owner[0][0]} Untuk Mengaktifkannya`,
         restrict: `Fitur *Admin* Tidak Aktif Silahkan Hubungi @${set.owner[0][0]} Untuk Mengaktifkannya`,
     }[type]
-    if (msg) return conn.sendMessage(m.chat, {
-text: msg,
-contextInfo: {  mentions: conn.parseMention(msg) 
-externalAdReply: {
-title: date,
-body: 'bodynya',
-thumbnailUrl: "https://telegra.ph/file/e18397f372aedc0cb467a.jpg",
-sourceUrl: "https://chat.whatsapp.com/KZwneZawhyx5udc2XzUe7W",
-mediaType: 1,
-renderLargerThumbnail: true
-}}}, { quoted: m})
+    if (msg) return conn.reply(m.chat, msg, mentions: conn.parseMention(msg) })
     let unreg = { 
         unreg: `Belum *Terdaftar,* Silahkan Daftar Dengan Mengetik *#daftar nama.umur*\n\nContoh: *#daftar ${m.name}.17*`
     }[type]
-    if (unreg) return conn.sendMessage(m.chat, {
-text: unreg,
-contextInfo: {  mentions: conn.parseMention(msg) 
-externalAdReply: {
-title: date,
-body: 'bodynya',
-thumbnailUrl: "https://telegra.ph/file/e18397f372aedc0cb467a.jpg",
-sourceUrl: "https://chat.whatsapp.com/KZwneZawhyx5udc2XzUe7W",
-mediaType: 1,
-renderLargerThumbnail: true
-}}}, { quoted: m})
+    if (unreg) return conn.sendMessage(m.chat, unreg, mentions: conn.parseMention(msg) })
 }
 
 let file = require.resolve(__filename)
