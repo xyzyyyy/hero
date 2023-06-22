@@ -16,5 +16,6 @@ handler.help = ['upload (caption|reply media)']
 handler.tags = ['tools']
 handler.command = /^upload$/i
 handler.limit = true
+handler.register = true
 
 module.exports = handler
