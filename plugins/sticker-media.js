@@ -17,6 +17,7 @@ handler.help = ['sticker'].map(v => v + ' <media/url>')
 handler.tags = ['sticker']
 handler.command = /^(s(tic?k(er)?)?(gif)?(video)?)$/i
 handler.desc = ['Membuat stiker dengan media foto, video atau url']
+handler.register = true
 module.exports = handler
 
 function isUrl(text) {
