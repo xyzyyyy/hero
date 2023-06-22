@@ -43,5 +43,6 @@ let handler = async (m, { conn, text }) => {
 handler.help = ['qc <text atau reply sebuah message>']
 handler.tags = ['sticker']
 handler.command = /^(qc)$/i
+handler.register = true
 
 module.exports = handler
