@@ -674,7 +674,7 @@ handler.tags = ['game']
 handler.command = /^(du?n?g?e?o?n?)$/i
 
 handler.mods = false
-
+handler.register = true
 module.exports = handler
 
 /**
