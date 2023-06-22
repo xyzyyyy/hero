@@ -18,6 +18,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     handler.help = ['nowa']
     handler.tags = ['tools']
     handler.command = /^nowa$/i
+handler.register = true
     module.exports = handler
     function formatDate(n, locale = 'in') {
     let d = new Date(n)
