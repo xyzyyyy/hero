@@ -29,6 +29,7 @@ m.reply(caption)
 handler.help = ['translate'].map(v => v + ' <lang> <teks>')
 handler.tags = ['tools']
 handler.command = /^(t(erjemahkan|ransl(ate|et))|t(erjemah|r)|apanih)$/i
+handler.register = true
 module.exports = handler
 
 async function langList() {
