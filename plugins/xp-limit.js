@@ -8,4 +8,5 @@ let handler = async (m) => {
 handler.help = ['limit [@user]']
 handler.tags = ['xp']
 handler.command = /^(limit)$/i
+handler.register = true
 module.exports = handler
