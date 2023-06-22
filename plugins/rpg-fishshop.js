@@ -1,28 +1,28 @@
 let { MessageType } = require('baileys')
 const Bpaus = 35000
-const Spaus = 10000
+const Spaus = 1000
 const Bkepiting = 25000
-const Skepiting = 8000
+const Skepiting = 800
 const Bgurita = 40000
-const Sgurita = 15000
+const Sgurita = 1500
 const Bcumi = 10000
-const Scumi = 5000
+const Scumi = 500
 const Bdory = 60000
-const Sdory = 30000
-const Blumba = 1000000
-const Slumba = 100000
-const Bhiu = 900000
-const Shiu = 300000
+const Sdory = 2300
+const Blumba = 100000
+const Slumba = 3000
+const Bhiu = 90000
+const Shiu = 2000
 const Budang = 20000
-const Sudang = 8000
+const Sudang = 800
 const Bikan = 3000
-const Sikan = 1000
+const Sikan = 100
 const Borca = 40000
-const Sorca = 15000
+const Sorca = 1500
 const Blobster = 10000
-const Slobster = 8000
+const Slobster = 800
 const Bbuntal = 15000
-const Sbuntal = 7000
+const Sbuntal = 700
 let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) => {
 	if (!db.data.chats[m.chat].rpg && m.isGroup) throw 'Feature Rpg Dimatikan Di grup ini\nKetik *!on* *rpg* untuk mengaktifkan fitur'
 	let user = global.db.data.home[m.sender]
@@ -44,7 +44,7 @@ List Ikan:\n\n
 🐠Dory.        ${Bdory}
 🐬Lumba²    ${Blumba}
 🦞Lobster    ${Blobster}
-🐡Buntal.     ${Bbuntal}\n\n
+🐡Buntal.     ${Bbuntal}\n\n\n
 *Ikan   |  Harga Jual*\n
 🐳Paus.       ${Spaus}
 🦀Kepiting. ${Skepiting}
@@ -253,7 +253,7 @@ List Ikan:\n\n
 handler.help = ['fishop <sell|buy>  <item> <args>', 'tokoikan <sell|buy> <item> <args>']
 handler.tags = ['rpg']
 
-//handler.command = /^(fishop|tokoikan)$/i
-//handler.register = true
+handler.command = /^(fishop|tokoikan)$/i
+handler.register = true
   
 module.exports = handler
