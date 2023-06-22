@@ -20,6 +20,7 @@ let handler = async (m, { conn, text, usedPrefix, command: cmd }) => {
 
 handler.help = ['wastalk']
 handler.tags = ['tools']
+handler.register = true
 handler.command = /^(wa|whatsapp)stalk$/i
 
 module.exports = handler
