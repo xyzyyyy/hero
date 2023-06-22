@@ -74,6 +74,7 @@ handler.before = async m => {
 handler.help = ['transfer', 'tf'].map(v => v + ' [type] [jumlah] [@tag]')
 handler.tags = ['rpg']
 handler.command = /^(transfer|tf)$/i
+handler.register = true
 
 module.exports = handler
 
