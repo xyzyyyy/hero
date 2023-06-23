@@ -34,7 +34,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     let common = member.common
     let makananpet = member.makananpet
     let iron = member.iron
-    let batu = member.batu
+    let batu = member.rock
     let kayu = member.kayu
     let string = member.string
 
@@ -81,50 +81,56 @@ let handler = async (m, { conn, usedPrefix }) => {
     let userspet = sortedpet.map(v => v[0])
 
     let str = `
-Inventory *${name.vnmae || name.notify || name.name || ('+' + name.jid.split`@`[0])}*\n
-❤️Nyawa: *${healt}*
-⛏️Pickaxe: *${pickaxe == 0 ? 'Tidak Punya' : '' || pickaxe == 1 ? 'Level 1' : '' || pickaxe == 2 ? 'Level 2' : '' || pickaxe == 3 ? 'Level 3' : '' || pickaxe == 4 ? 'Level 4' : '' || pickaxe == 5 ? 'Level 5 (MAX)' : ''}*
-⚔️Sword: *${sword == 0 ? 'Tidak Punya' : '' || sword == 1 ? 'Leather Sword' : '' || sword == 2 ? 'Iron Sword' : '' || sword == 3 ? 'Gold Sword' : '' || sword == 4 ? 'Diamond Sword' : '' || sword == 5 ? 'Netherite Sword (MAX)' : ''}*
-👚Armor: *${armor == 0 ? 'Tidak Punya' : '' || armor == 1 ? 'Leather Armor' : '' || armor == 2 ? 'Iron Armor' : '' || armor == 3 ? 'Gold Armor' : '' || armor == 4 ? 'Diamond Armor' : '' || armor == 5 ? 'Netherite Armor (MAX)' : ''}*
-🎣FishingRod: ${fishingrod}
-
-💵Uang: *${money}*
-🔱Level: *${level}*
-✉️Exp: *${exp}*
-
-*Inventory*
-💎Diamond: *${diamond}*
-🥤Potion: *${potion}*
-🗑️Sampah: *${sampah}*
-🍖Makanan Pet: *${makananpet}*
-⛓️Iron: *${iron}*
-🪨Batu: *${batu}*
-🪵Kayu: *${kayu}*
-🕸️String: *${string}*
-Total inv: *${diamond + potion + sampah + makananpet}* item\n
-*buah & bibit*
-🥭Mangga: *${mangga}*
-🍌Pisang: *${mangga}*
-🍇Anggur: *${anggur}*
-🍊Jeruk: *${jeruk}*
-🍎Apel: *${apel}*
-🌾Bibit mangga: *${bibitmangga}*
-🌾Bibit pisang: *${bibitpisang}*
-🌾Bibit anggur: *${bibitanggur}*
-🌾Bibit jeruk: *${bibitjeruk}*
-🌾Bibit apel: *${bibitapel}*\n
-*Crate*
-📦Common: *${common}*
-📦Uncommon: *${uncommon}*
-📦Mythi *${mythic}*
-🎁Legendary: *${legendary}*
-📦Pet: *${pet}*\n
-*Pet*
-🐎Kuda: *${kuda == 0 ? 'Tidak Punya' : '' || kuda == 1 ? 'Level 1' : '' || kuda == 2 ? 'Level 2' : '' || kuda == 3 ? 'Level 3' : '' || kuda == 4 ? 'Level 4' : '' || kuda == 5 ? 'Level MAX' : ''}*
-🦊Rubah: *${rubah == 0 ? 'Tidak Punya' : '' || rubah == 1 ? 'Level 1' : '' || rubah == 2 ? 'Level 2' : '' || rubah == 3 ? 'Level 3' : '' || rubah == 4 ? 'Level 4' : '' || rubah == 5 ? 'Level MAX' : ''}*
-🐈Kucing: *${kucing == 0 ? 'Tidak Punya' : '' || kucing == 1 ? 'Level 1' : '' || kucing == 2 ? 'Level 2' : '' || kucing == 3 ? 'Level 3' : '' || kucing == 4 ? 'Level 4' : '' || kucing == 5 ? 'Level MAX' : ''}*
-🐶Anjing: *${anjing == 0 ? 'Tidak Punya' : '' || anjing == 1 ? 'Level 1' : '' || anjing == 2 ? 'Level 2' : '' || anjing == 3 ? 'Level 3' : '' || anjing == 4 ? 'Level 4' : '' || anjing == 5 ? 'Level MAX' : ''}*\n\n
-*Proges*\n
+Inventory *${name.vnmae || name.notify || name.name || ('+' + name.jid.split`@`[0])}*\n\n
+╭─❒「 *Info* 」
+│ ❤️Nyawa: *${healt}*
+│ ⛏️Pickaxe: *${pickaxe == 0 ? 'Tidak Punya' : '' || pickaxe == 1 ? 'Level 1' : '' || pickaxe == 2 ? 'Level 2' : '' || pickaxe == 3 ? 'Level 3' : '' || pickaxe == 4 ? 'Level 4' : '' || pickaxe == 5 ? 'Level 5 (MAX)' : ''}*
+│ ⚔️Sword: *${sword == 0 ? 'Tidak Punya' : '' || sword == 1 ? 'Leather Sword' : '' || sword == 2 ? 'Iron Sword' : '' || sword == 3 ? 'Gold Sword' : '' || sword == 4 ? 'Diamond Sword' : '' || sword == 5 ? 'Netherite Sword (MAX)' : ''}*
+│ 👚Armor: *${armor == 0 ? 'Tidak Punya' : '' || armor == 1 ? 'Leather Armor' : '' || armor == 2 ? 'Iron Armor' : '' || armor == 3 ? 'Gold Armor' : '' || armor == 4 ? 'Diamond Armor' : '' || armor == 5 ? 'Netherite Armor (MAX)' : ''}*
+│ 🎣FishingRod: ${fishingrod}
+╰─────────────❒\n
+╭─❒「 *profile* 」
+│ 💵Uang: *${money}*
+│ 🔱Level: *${level}*
+│ ✉️Exp: *${exp}*
+╰─────────────❒\n
+╭─❒「 *inventory* 」
+│ 💎Diamond: *${diamond}*
+│ 🥤Potion: *${potion}*
+│ 🗑️Sampah: *${sampah}*
+│ 🍖Makanan Pet: *${makananpet}*
+│ Iron: *${iron}*
+│ 🪨Batu: *${batu}*
+│ 🪵Kayu: *${kayu}*
+│ 🕸️String: *${string}*
+│ Total inv: *${diamond + potion + sampah + makananpet}* item
+╰─────────────❒\n
+╭─❒「 *Buah dan bibit* 」
+│ 🥭Mangga: *${mangga}*
+│ 🍌Pisang: *${mangga}*
+│ 🍇Anggur: *${anggur}*
+│ 🍊Jeruk: *${jeruk}*
+│ 🍎Apel: *${apel}*
+│ 🌾Bibit mangga: *${bibitmangga}*
+│ 🌾Bibit pisang: *${bibitpisang}*
+│ 🌾Bibit anggur: *${bibitanggur}*
+│ 🌾Bibit jeruk: *${bibitjeruk}*
+│ 🌾Bibit apel: *${bibitapel}*
+╰─────────────❒\n
+╭─❒「 *Crate* 」
+│ 📦Common: *${common}*
+│ 📦Uncommon: *${uncommon}*
+│ 📦Mythi *${mythic}*
+│ 🎁Legendary: *${legendary}*
+│ 📦Pet: *${pet}*
+╰─────────────❒\n
+╭─❒「 *pet*」
+│ 🐎Kuda: *${kuda == 0 ? 'Tidak Punya' : '' || kuda == 1 ? 'Level 1' : '' || kuda == 2 ? 'Level 2' : '' || kuda == 3 ? 'Level 3' : '' || kuda == 4 ? 'Level 4' : '' || kuda == 5 ? 'Level MAX' : ''}*
+│ 🦊Rubah: *${rubah == 0 ? 'Tidak Punya' : '' || rubah == 1 ? 'Level 1' : '' || rubah == 2 ? 'Level 2' : '' || rubah == 3 ? 'Level 3' : '' || rubah == 4 ? 'Level 4' : '' || rubah == 5 ? 'Level MAX' : ''}*
+│ 🐈Kucing: *${kucing == 0 ? 'Tidak Punya' : '' || kucing == 1 ? 'Level 1' : '' || kucing == 2 ? 'Level 2' : '' || kucing == 3 ? 'Level 3' : '' || kucing == 4 ? 'Level 4' : '' || kucing == 5 ? 'Level MAX' : ''}*
+│ 🐶Anjing: *${anjing == 0 ? 'Tidak Punya' : '' || anjing == 1 ? 'Level 1' : '' || anjing == 2 ? 'Level 2' : '' || anjing == 3 ? 'Level 3' : '' || anjing == 4 ? 'Level 4' : '' || anjing == 5 ? 'Level MAX' : ''}*
+╰─────────────❒\n
+*Proges*
 ╭────────────────
 │🔱Level *${level}* To Level *${level}*
 │⚜️Exp *${exp}* -> *${level * 100}*
@@ -166,7 +172,7 @@ Banned: *No*
 handler.help = ['inventory', 'inv']
 handler.tags = ['rpg']
 handler.command = /^(inv(entory)?|bal|level(ing)?|money|e?xp)$/i
-handler.register = false
+handler.register = true
 module.exports = handler
 
 const more = String.fromCharCode(8206)
