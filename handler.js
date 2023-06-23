@@ -884,14 +884,13 @@ global.set.dfail = async (type, m, conn) => {
         game: `Fitur *GAME* Tidak Aktif Silahkan Hubungi @${set.owner[0][0]} Untuk Mengaktifkannya`,
         rpg: `Fitur *RPG* Tidak Aktif Silahkan Hubungi @${set.owner[0][0]} Untuk Mengaktifkannya`,
         download: `Fitur *Downloader* Tidak Aktif Silahkan Hubungi @${set.owner[0][0]} Untuk Mengaktifkannya`,
-        restrict: `Fitur *Admin* Tidak Aktif Silahkan Hubungi @${set.owner[0][0]} Untuk MengaktifkanUntuk
-        register: `*AKSES DITOLAK!!!*\nsilahkan register bot terlebih dahulu sebelum menggunakan bot!\n\nketik:\n#reg nama.umur\n#reg ${m.name}.21`,
+        restrict: `Fitur *Admin* Tidak Aktif Silahkan Hubungi @${set.owner[0][0]} Untuk Mengaktifkannya`,
     }[type]
-    if (msg) return m.reply(msg)
+    if (msg) return conn.reply(m.chat, msg, m)
     let unreg = { 
         unreg: `*AKSES DITOLAK!!*\n Silahkan Daftar Dengan Mengetik *#reg nama.umur*\n\nContoh: *#reg ${m.name}.17*\nuntuk menggunakan bot ini`
     }[type]
-    if (unreg) return m.reply(unreg)
+    if (unreg) return conn.reply(m.chat, unreg, m)
 }
 
 let file = require.resolve(__filename)
