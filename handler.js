@@ -884,7 +884,8 @@ global.set.dfail = async (type, m, conn) => {
         game: `Fitur *GAME* Tidak Aktif Silahkan Hubungi @${set.owner[0][0]} Untuk Mengaktifkannya`,
         rpg: `Fitur *RPG* Tidak Aktif Silahkan Hubungi @${set.owner[0][0]} Untuk Mengaktifkannya`,
         download: `Fitur *Downloader* Tidak Aktif Silahkan Hubungi @${set.owner[0][0]} Untuk Mengaktifkannya`,
-        restrict: `Fitur *Admin* Tidak Aktif Silahkan Hubungi @${set.owner[0][0]} Untuk Mengaktifkannya`,
+        restrict: `Fitur *Admin* Tidak Aktif Silahkan Hubungi @${set.owner[0][0]} Untuk MengaktifkanUntuk
+        register: `*AKSES DITOLAK!!!*\nsilahkan register bot terlebih dahulu sebelum menggunakan bot!\n\nketik:\n#reg nama.umur\n#reg ${m.name}.21`,
     }[type]
     if (msg) return m.reply(msg)
     let unreg = { 
