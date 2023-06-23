@@ -888,7 +888,7 @@ global.set.dfail = async (type, m, conn) => {
     }[type]
     if (msg) return m.reply(msg)
     let unreg = { 
-        unreg: `Belum *Terdaftar,* Silahkan Daftar Dengan Mengetik *#daftar nama.umur*\n\nContoh: *#daftar ${m.name}.17*`
+        unreg: `*AKSES DITOLAK!!*\n Silahkan Daftar Dengan Mengetik *#reg nama.umur*\n\nContoh: *#reg ${m.name}.17*\nuntuk menggunakan bot ini`
     }[type]
     if (unreg) return m.reply(unreg)
 }
