@@ -886,11 +886,11 @@ global.set.dfail = async (type, m, conn) => {
         download: `Fitur *Downloader* Tidak Aktif Silahkan Hubungi @${set.owner[0][0]} Untuk Mengaktifkannya`,
         restrict: `Fitur *Admin* Tidak Aktif Silahkan Hubungi @${set.owner[0][0]} Untuk Mengaktifkannya`,
     }[type]
-    if (msg) return conn.reply(msg)
+    if (msg) return m.reply(msg)
     let unreg = { 
         unreg: `Belum *Terdaftar,* Silahkan Daftar Dengan Mengetik *#daftar nama.umur*\n\nContoh: *#daftar ${m.name}.17*`
     }[type]
-    if (unreg) return conn.reply(unreg)
+    if (unreg) return m.reply(unreg)
 }
 
 let file = require.resolve(__filename)
