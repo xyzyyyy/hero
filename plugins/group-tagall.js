@@ -1,31 +1,18 @@
-//let { getGroupMembers } = require('../lib/functions')
-//let { MessageType, Presence } = require('baileys')
 
-let handler = async(m, { conn, isGroup, isAdmin, participants, groupMetadata }) => {
-
-  //await conn.updatePresence(m.chat, Presence.composing)
-  
- let grup = await groupMetadata.participants
- let member = await getGroupMembers(grup)
- txt = `┏━━°❀❬ *LIST MEMBER* ❭❀°━━┓\n`
- for (let min of member) {
-    txt += `┃ @${min.split('@')[0]}\n`
- }
- txt += '┗━━━━━━━━━━━━━━'     
- conn.reply(m.chat, txt, m, { contextInfo: { mentionedJid: mimin }})
+let handler = async(m, { conn, text, participants }) => {
+  let teks = `${text ? text : ' '}\n\n`
+		      	for (let mem of participants) {
+		            teks += `@${mem.id.split('@')[0]}\n`
+				}
+                conn.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, )
 }
-//handler.help = ['listmember','tagall','tagmember']
-//handler.tags = ['group']
-//handler.command = /^(listmember|tagall|tagmember)$/i
+handler.help = ['tagall <pesan>']
+handler.tags = ['group']
+handler.command = /^(tagall)$/i
+
 handler.group = true
-//handler.admin = true
+handler.admin = true
 
 module.exports = handler
 
-async function getGroupMembers(participants) {
-  members = []
-  participants.forEach(user => {
-    if (!user.isAdmin) members.push(user.jid)
-  })
-return members
-}
+
